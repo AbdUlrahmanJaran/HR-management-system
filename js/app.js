@@ -21,7 +21,7 @@ Employee.prototype.getSalary = function(){
         return Math.floor(Math.random() * (1000 - 500) ) + 500;
     
     else
-    return 0;
+    return "Not correct Level";
 }
 
   let ghaziSamer = new Employee(1000, "Gazi Samer", "Administration", "Senior", "URL");
