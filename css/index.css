@@ -1,0 +1,73 @@
+.logo {
+    width: 50px;
+    height: auto;
+  }
+
+  
+  nav a {
+    float: right ;
+    margin: 20px;
+    border: 1px solid #F0F0F0;
+    text-transform: uppercase;
+    padding: 10 ;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;  
+  }
+
+
+  header
+  {
+   display: flex;
+   align-items: center;
+   height: 50px;
+   justify-content: space-between;
+   background-color: #F3C5C5 ;
+  }
+  
+  footer {
+    display: flex;
+    text-align: center;
+    background-color: #F3C5C5 ;
+    height: 50px;
+    margin: 30px;
+    padding: 20px;
+  }
+
+  .Show img {
+width: 150px;
+height: auto;
+align-items: center;
+
+  }
+
+  .Show
+  {
+    background-color: #BB6464;
+    display: inline-block;
+    align-items: center;
+    margin: 50px;
+    border: #F0F0F0;
+    border-radius: 10%;
+    text-align: center;
+    height:fit-content;
+    justify-content: space-between;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+
+  }
+  form{
+    padding: 20px;
+    color: blue;
+    display: block;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+    width:50% ;
+    margin: auto;
+
+  }
+ 
