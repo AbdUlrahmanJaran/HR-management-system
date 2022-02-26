@@ -27,9 +27,15 @@ header
  background-color: #F3C5C5 ;
 }
 
+table, th, td {
+  border:1px solid black;
+}
+
 footer {
   display: flex;
+  align-items: center;
   text-align: center;
+  justify-content: space-between;
   background-color: #F3C5C5 ;
   height: 50px;
   margin: 30px;
