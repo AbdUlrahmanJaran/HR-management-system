@@ -47,13 +47,13 @@ AutoEmployee.prototype.SalaryGenerator = function(){
 }
 
 
-let ghaziSamer = new AutoEmployee("Gazi Samer", "Administration", "Senior", "URL");
-let lanaAli = new AutoEmployee("Lana Ali", "Finance", "Senior", "URL");
-let tamaraAyoub = new AutoEmployee("Tamara Ayoub", "Marketing", "Senior", "URL");
-let safiWalid= new AutoEmployee("Safi Walid", "Administration", "Mid-Senior", "URL");
-let omarZaid = new AutoEmployee("Omar Zaid", "Development", "Senior", "URL");
-let ranaSaleh = new AutoEmployee("Rana Saleh", "Development", "Junior", "URL");
-let hadiAhmad = new AutoEmployee("Hadi Ahmad", "Finance", "Mid-Senior", "URL");
+let ghaziSamer = new AutoEmployee("Gazi Samer", "Administration", "Senior", "assets/Ghazi.jpg");
+let lanaAli = new AutoEmployee("Lana Ali", "Finance", "Senior", "assets/Lana.jpg");
+let tamaraAyoub = new AutoEmployee("Tamara Ayoub", "Marketing", "Senior", "assets/Tamara.jpg");
+let safiWalid= new AutoEmployee("Safi Walid", "Administration", "Mid-Senior", "assets/Safi.jpg");
+let omarZaid = new AutoEmployee("Omar Zaid", "Development", "Senior", "assets/Omar.jpg");
+let ranaSaleh = new AutoEmployee("Rana Saleh", "Development", "Junior", "assets/Rana.jpg");
+let hadiAhmad = new AutoEmployee("Hadi Ahmad", "Finance", "Mid-Senior", "assets/Hadi.jpg");
 
 function saveEmployee (){
     let saveformat = JSON.stringify(autoEmployees);
