@@ -1,43 +1,53 @@
-.logo {
-    width: 50px;
-    height: auto;
-  }
-
-  
-  nav a {
-    float: right ;
-    margin: 20px;
-    border: 1px solid #F0F0F0;
-    text-transform: uppercase;
-    padding: 10 ;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;  
-  }
-
-
-header
-{
- display: flex;
- align-items: center;
- height: 50px;
- justify-content: space-between;
- background-color: #F3C5C5 ;
+body {
+  margin : 0;
 }
-
-table, th, td {
-  border:1px solid black;
-}
-
-footer {
+nav {
   display: flex;
-  align-items: center;
-  text-align: center;
   justify-content: space-between;
-  background-color: #F3C5C5 ;
-  height: 50px;
-  margin: 30px;
-  padding: 20px;
+  align-items: center;
+  background-color: crimson;
+  height: 52.3px;
+}
+.logo {
+  width: 55px;
+  height: auto;
+  padding: 5px;
+}
+a {
+  text-decoration: none;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+table {
+  border:2px solid black;
+  border-collapse: collapse;
+  border-radius: 10px;
+  width : 60%;
+  margin: 10px;
+  padding: 5px;
+}
+th {
+  border:2px solid black;
+  background-color: #D9534F;
+  color: white;
+  padding: 7px;
+}
+td {
+  border:2px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+h6{
+  padding: 10px;
+  color: white;
+  font-size: 13px;
+  margin: 0px;
+}
+.social {
+  width: 40px;
+  height: 40px; 
 }

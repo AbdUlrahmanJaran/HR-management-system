@@ -1,75 +1,63 @@
+body {
+  margin : 0px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: crimson;
+  height: 52.3px;
+}
 .logo {
-    width: 50px;
-    height: auto;
-  }
+  width: 55px;
+  height: auto;
+  padding: 5px;
+}
+a {
+  text-decoration: none;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
 
-  
-  nav a {
-    float: right ;
-    margin: 20px;
-    border: 1px solid #F0F0F0;
-    text-transform: uppercase;
-    padding: 10 ;
-  }
+form{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  color: crimson;
+  align-items: center;
+  text-align: center;
+  width:50% ;
+  margin: auto;
+}
 
-  a {
-    text-decoration: none;
-    color: black;  
-  }
+.Show img {
+  width: auto;
+  height: 150px;
+  padding: 3px;
+  align-items: center;
+}
 
+.Show {
+  display: inline-block;
+  padding: 7px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 25px;
+  border: 3px solid crimson;
+  border-radius: 7px;
+}
 
-  header
-  {
-   display: flex;
-   align-items: center;
-   height: 50px;
-   justify-content: space-between;
-   background-color: #F3C5C5 ;
-  }
-  
-  footer {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    background-color: #F3C5C5 ;
-    height: 50px;
-    margin: 30px;
-    padding: 20px;
-  }
-
-  .Show img {
-width: 150px;
-height: auto;
-align-items: center;
-
-  }
-
-  .Show
-  {
-    background-color: #BB6464;
-    display: inline-block;
-    align-items: center;
-    margin: 50px;
-    border: #F0F0F0;
-    border-radius: 10%;
-    text-align: center;
-    height:fit-content;
-    justify-content: space-between;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
-
-
-  }
-  form{
-    padding: 20px;
-    color: blue;
-    display: block;
-    align-items: center;
-    align-items: center;
-    text-align: center;
-    width:50% ;
-    margin: auto;
-
-  }
+h6{
+  padding: 10px;
+  color: white;
+  font-size: 13px;
+  margin: 0px;
+}
+.social {
+  width: 40px;
+  height: 40px; 
+}
  

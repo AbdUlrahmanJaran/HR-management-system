@@ -1,7 +1,7 @@
 'use strict';
 
 let table = document.getElementById("table");
-let employeesNum = JSON.parse(localStorage.getItem("emploeey"));
+let employeesNum = JSON.parse(localStorage.getItem("employee"));
 console.log(employeesNum);
 
 function renderHeader(){
@@ -34,19 +34,19 @@ function renderTableBody (){
     let salaryM = 0; let empM = 0;
 
     for (let i = 0; i < employeesNum.length; i++) {
-        if (employeesNum[i].department === "development") {
+        if (employeesNum[i].department === "Development") {
             empD ++ ;
             totalemp ++ ;
             salaryD += employeesNum[i].salary;
             totalSalary  += employeesNum[i].salary;
         }
-        else if (employeesNum[i].department === "administration") {
+        else if (employeesNum[i].department === "Administration") {
             empA ++ ;
             totalemp ++ ;
             salaryA += employeesNum[i].salary;
             totalSalary  += employeesNum[i].salary;
         }
-        else if (employeesNum[i].department === "finance") {
+        else if (employeesNum[i].department === "Finance") {
             empF ++ ;
             totalemp ++ ;
             salaryF += employeesNum[i].salary;
