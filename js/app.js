@@ -1,80 +1,84 @@
 'use strict';
 
-// let employees =[];
-let autoEmployees =[];
-let form = document.getElementById("dataForm");
-let mainDiv = document.getElementById("mainDiv");
-let add =  document.getElementById("submit");
-let employeeIdstart  = 1000 ;
+  // let employees =[];
+  let autoEmployees =[];
+  let form = document.getElementById("dataForm");
+  let mainDiv = document.getElementById("mainDiv");
+  let add =  document.getElementById("submit");
+  let employeeIdstart  = 1000 ;
 
-function AutoEmployee ( fullName, department, level, image){
-    this.employeeId= 0;
-    this.fullName= fullName;
-    this.department= department;
-    this.level= level;
-    this.image= image;
-    this.salary= 0;
-    autoEmployees.push(this)
-}
-
-AutoEmployee.prototype.getSalary = function(){
-    if(this.level == "Senior")
-        return Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-    
-    else if(this.level == "Mid-Senior")
-        return Math.floor(Math.random() * (1500 - 1000) ) + 1000;
-    
-    else if(this.level == "Junior")
-        return Math.floor(Math.random() * (1000 - 500) ) + 500;
-    
-    else
-    return 0;
-}
-
-//Id generator
-function generateId(){
-    return employeeIdstart++;
+  function AutoEmployee ( fullName, department, level, image){
+      this.employeeId= 0;
+      this.fullName= fullName;
+      this.department= department;
+      this.level= level;
+      this.image= image;
+      this.salary= 0;
+      autoEmployees.push(this);
   }
-AutoEmployee.prototype.getId = function(){
+
+  AutoEmployee.prototype.getSalary = function(){
+      if(this.level == "Senior")
+          return Math.floor(Math.random() * (2000 - 1500) ) + 1500;
+
+      else if(this.level == "Mid-Senior")
+          return Math.floor(Math.random() * (1500 - 1000) ) + 1000;
+
+      else if(this.level == "Junior")
+          return Math.floor(Math.random() * (1000 - 500) ) + 500;
+
+      else
+      return 0;
+  }
+
+  //Id generator
+  function generateId(){
+  employeeIdstart++;
+    return employeeIdstart;
+  }
+  AutoEmployee.prototype.getId = function(){
     this.employeeId = generateId()
       
   }
   
-AutoEmployee.prototype.SalaryGenerator = function(){
-    for(let i=0; i<autoEmployees.length; i++){
-    autoEmployees[i].salary = autoEmployees[i].getSalary() - autoEmployees[i].getSalary()*0.075; 
-    }
-}
+  AutoEmployee.prototype.SalaryGenerator = function(){
+      for(let i=0; i<autoEmployees.length; i++){
+      autoEmployees[i].salary = autoEmployees[i].getSalary() - autoEmployees[i].getSalary()*0.075; 
+      }
+  }
+  AutoEmployee.prototype.save = function(){
+    saveEmployee();
+  }
+
+  let ghaziSamer = new AutoEmployee("Gazi Samer", "Administration", "Senior", "assets/Ghazi.jpg");
+  let lanaAli = new AutoEmployee("Lana Ali", "Finance", "Senior", "assets/Lana.jpg");
+  let tamaraAyoub = new AutoEmployee("Tamara Ayoub", "Marketing", "Senior", "assets/Tamara.jpg");
+  let safiWalid= new AutoEmployee("Safi Walid", "Administration", "Mid-Senior", "assets/Safi.jpg");
+  let omarZaid = new AutoEmployee("Omar Zaid", "Development", "Senior", "assets/Omar.jpg");
+  let ranaSaleh = new AutoEmployee("Rana Saleh", "Development", "Junior", "assets/Rana.jpg");
+  let hadiAhmad = new AutoEmployee("Hadi Ahmad", "Finance", "Mid-Senior", "assets/Hadi.jpg");
 
 
-let ghaziSamer = new AutoEmployee("Gazi Samer", "Administration", "Senior", "assets/Ghazi.jpg");
-let lanaAli = new AutoEmployee("Lana Ali", "Finance", "Senior", "assets/Lana.jpg");
-let tamaraAyoub = new AutoEmployee("Tamara Ayoub", "Marketing", "Senior", "assets/Tamara.jpg");
-let safiWalid= new AutoEmployee("Safi Walid", "Administration", "Mid-Senior", "assets/Safi.jpg");
-let omarZaid = new AutoEmployee("Omar Zaid", "Development", "Senior", "assets/Omar.jpg");
-let ranaSaleh = new AutoEmployee("Rana Saleh", "Development", "Junior", "assets/Rana.jpg");
-let hadiAhmad = new AutoEmployee("Hadi Ahmad", "Finance", "Mid-Senior", "assets/Hadi.jpg");
 
-function saveEmployee (){
+
+  function saveEmployee (){
     let saveformat = JSON.stringify(autoEmployees);
-    localStorage.setItem("emploeey",saveformat)
+    localStorage.setItem("employee",saveformat);
   }
 
   function getData(){
-    let emploeey = localStorage.getItem("emploeey")
-    let parseemploeey = JSON.parse(emploeey);
-    autoEmployees = []
-    if (parseemploeey !== null){
-      
-      for (let i = 0 ; i < parseemploeey.length ; i++ ){
-        new AutoEmployee(parseemploeey[i].fullName, parseemploeey[i].department, parseemploeey[i].level, parseemploeey[i].image);
+    let employee = localStorage.getItem("employee");
+    let parseemployee = JSON.parse(employee);
+    autoEmployees = [];
+    if (parseemployee !== null){
+      for (let i = 0 ; i < parseemployee.length ; i++ ){
+        new AutoEmployee(parseemployee[i].fullName, parseemployee[i].department, parseemployee[i].level, parseemployee[i].image);
       }
     }
-    render();
-}
+  }
 
-form.addEventListener("submit", handleSubmit);
-function handleSubmit(event){
+  form.addEventListener("submit", handleSubmit);
+  function handleSubmit(event){
     event.preventDefault();
     let name = event.target.fullName.value;
     let department = event.target.department.value;
@@ -87,49 +91,50 @@ function handleSubmit(event){
     newEmployee.getId();
     newEmployee.showEmployee();
     saveEmployee();
-}
+  }
 
-AutoEmployee.prototype.showEmployee =function()
-{
+  AutoEmployee.prototype.showEmployee =function() {
 
-let divShow = document.createElement("div");
-divShow.setAttribute('class',"Show");
+  let divShow = document.createElement("div");
+  divShow.setAttribute('class',"Show");
 
-let imgShow = document.createElement("img");
-imgShow.setAttribute("src",this.image);
-divShow.appendChild(imgShow); 
-    
-let title = document.createElement("h4");
-title.textContent="Name :"+this.fullName;
-divShow.appendChild(title);
-     
-let titleId = document.createElement("h4");
-titleId.textContent="ID :"+this.employeeId;
-divShow.appendChild(titleId);
-     
-let titleDeb = document.createElement("h4");
-titleDeb.textContent="Department :"+this.department;
-divShow.appendChild(titleDeb);
-     
-let titleLevel = document.createElement("h4");
-titleLevel.textContent="level :"+this.level;
-divShow.appendChild(titleLevel);
+  let imgShow = document.createElement("img");
+  imgShow.setAttribute("src",this.image);
+  divShow.appendChild(imgShow); 
 
-let salary = document.createElement("h4");
-salary.textContent = `salary : ${this.salary}$`;
-divShow.appendChild(salary);
+  let title = document.createElement("h4");
+  title.textContent="Name :"+this.fullName;
+  divShow.appendChild(title);
 
-mainDiv.appendChild(divShow);
-}
-function render(){
-    for (let i = 0 ; i < autoEmployees.length ; i++ ){
-        autoEmployees[i].getId();
-        autoEmployees[i].SalaryGenerator();
-        autoEmployees[i].showEmployee();
+  let titleId = document.createElement("h4");
+  titleId.textContent="ID :"+this.employeeId;
+  divShow.appendChild(titleId);
+
+  let titleDeb = document.createElement("h4");
+  titleDeb.textContent="Department :"+this.department;
+  divShow.appendChild(titleDeb);
+
+  let titleLevel = document.createElement("h4");
+  titleLevel.textContent="Level :"+this.level;
+  divShow.appendChild(titleLevel);
+
+  let salary = document.createElement("h4");
+  salary.textContent = `Salary : ${this.salary}$`;
+  divShow.appendChild(salary);
+
+  mainDiv.appendChild(divShow);
+  }
+
+  function render(){
+      for (let i = 0 ; i < autoEmployees.length ; i++ ){
+          autoEmployees[i].getId();
+          autoEmployees[i].SalaryGenerator();
+          autoEmployees[i].showEmployee();
+          autoEmployees[i].save();
       }
-    }
-    render();
-    getData();
+  }
+  render();
+  getData();
 
 //  function Employee (employeeId, fullName, department, level, image, salary){
 //      this.employeeId= employeeId;
